@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { inc, dec } from "../actions/testAction";
+import { inc, dec, res } from "../actions/testAction";
 
 class Main extends Component {
   increment = () => {
@@ -19,6 +19,11 @@ class Main extends Component {
     this.props.dec();
   };
 
+  reset = () => {
+    console.log("reset Works");
+    this.props.res();
+  };
+
   render() {
     console.log("PROPS - ", this.props);
     const { count } = this.props;
@@ -28,6 +33,7 @@ class Main extends Component {
         <h3>State: {count}</h3>
         <button onClick={this.increment}>INCREMENT</button>
         <button onClick={this.decrement}>DECREMENT</button>
+        <button onClick={this.reset}>RESET</button>
       </div>
     );
   }
@@ -39,5 +45,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { inc, dec }
+  { inc, dec, res }
 )(Main);

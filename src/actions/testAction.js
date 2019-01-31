@@ -9,3 +9,11 @@ export function dec() {
     dispatch({ type: "DECREMENT" });
   };
 }
+
+
+export function res() {
+    return function(dispatch) {
+      dispatch({ type: "RESET" });
+    };
+  }
+  
